@@ -23,7 +23,7 @@
       <a href="{{ file.image.url }}" class="btn btn-primary btn-sm" role="button" download>Download ({{ file.image.size|sizify }})</a>
       <h5>No olvide guardar su link:</h5>
       <div class="alert alert-light" role="alert">
-        <a href="{% url 'archilinks' file.id %}" class="alert-link">127.0.0.1:8000{% url 'archilinks' file.id %}</a>
+        <a href="{% url 'imagenlinks' file.id %}" class="alert-link">127.0.0.1:8000{% url 'imagenlinks' file.id %}</a>
       </div>
 
     {% endfor%}
