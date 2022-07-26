@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {% endblock %}
+
+
+{% block content %} 
+    <main class="px-10">
+    <h2>¡Archinon!</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            
+        {{ form.as_p }} <button type="submit" class="btn btn-primary btn-sm">Subir imagen</button>
+    </main>
+{% endblock %}

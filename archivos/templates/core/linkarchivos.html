@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} 
+
+{% endblock %}
+
+{% block content %} 
+
+  <main class="px-10">
+    <h2>¡Descarga tu Archivo! </h2>
+    {% load archivo_tags %}
+    {% for file in descargas %}
+      <a>{{file.file}}</a>  
+      <a href="{{ file.file.url}}" class="btn btn-primary btn-sm" role="button" download>Download ({{ file.file.size|sizify }})</a>
+      <h5>No olvide guardar su link:</h5>
+      <div class="alert alert-light" role="alert">
+        <a href="{% url 'archilinks' file.id %}" class="alert-link">127.0.0.1:8000{% url 'archilinks' file.id %}</a>
+      </div>
+
+    {% endfor%}
+  </main>
+{% endblock %}

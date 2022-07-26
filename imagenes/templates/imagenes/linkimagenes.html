@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} 
+
+<h3 class="float-md-start mb-0"><a href="{% url 'home' %}">Archinon</a></h3>
+<nav class="nav nav-masthead justify-content-center float-md-end">
+  <a class="nav-link fw-bold py-1 px-0"  href="{% url 'archivos' %}">Archivos</a>
+  <a class="nav-link fw-bold py-1 px-0" href="{% url 'imagenes' %}">Imagenes</a>
+  <a class="nav-link fw-bold py-1 px-0" href="{% url 'videos' %}">Videos</a>
+</nav>
+
+{% endblock %}
+
+{% block content %} 
+
+  <main class="px-10">
+    <h2>¡Descarga tu Imagen! </h2>
+    {% load archivo_tags %}
+    {% for file in descargas %}
+      <a>{{file.image}}</a>  
+      <a href="{{ file.image.url }}" class="btn btn-primary btn-sm" role="button" download>Download ({{ file.image.size|sizify }})</a>
+      <h5>No olvide guardar su link:</h5>
+      <div class="alert alert-light" role="alert">
+        <a href="{% url 'archilinks' file.id %}" class="alert-link">127.0.0.1:8000{% url 'archilinks' file.id %}</a>
+      </div>
+
+    {% endfor%}
+  </main>
+
+{% endblock %}
